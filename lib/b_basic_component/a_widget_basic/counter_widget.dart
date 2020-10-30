@@ -27,8 +27,12 @@ class _CounterState extends State<CounterWidget> {
   Widget build(BuildContext context) {
     print("build");
     return Scaffold(
+      appBar: AppBar(
+        title: Text("子树中获取State对象"),
+      ),
       body: Center(
           child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           FlatButton(
             child: Text("$_counter"),
@@ -41,12 +45,14 @@ class _CounterState extends State<CounterWidget> {
           FlatButton(
             child: Text("show snakebar"),
             onPressed: () {
-              ScaffoldState _state = context.findAncestorStateOfType<ScaffoldState>();
-              _state.showSnackBar(
-                SnackBar(
-                  content: Text("我是snakeBar1"),
-                )
-              );
+              // ScaffoldState _state = context.findAncestorStateOfType<ScaffoldState>();
+
+              ///约定俗成的方法暴露state
+              ScaffoldState _state = Scaffold.of(context);
+
+              _state.showSnackBar(SnackBar(
+                content: Text("我是snakeBar1"),
+              ));
             },
           ),
         ],

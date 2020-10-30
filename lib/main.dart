@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app2/a_first_flutter_app/new_rout.dart';
 import 'package:flutter_app2/a_first_flutter_app/random_words_widget.dart';
+import 'package:flutter_app2/b_basic_component/a_widget_basic/b_text.dart';
+import 'package:flutter_app2/b_basic_component/a_widget_basic/c_button.dart';
 import 'package:flutter_app2/b_basic_component/a_widget_basic/counter_widget.dart';
+import 'package:flutter_app2/b_basic_component/a_widget_basic/d_image.dart';
+import 'package:flutter_app2/b_basic_component/a_widget_basic/e_listview.dart';
+
+import 'b_basic_component/a_widget_basic/f_gesture_drag.dart';
 
 void main() => runApp(MyApp());
 
@@ -137,7 +143,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   debugDumpRenderTree();
                 },
                 textColor: Colors.blue,
-                // child:Text('debugDumpApp'),
                 child: Text('debugDumpRenderTree')),
             FlatButton(
                 onPressed: () {
@@ -146,8 +151,47 @@ class _MyHomePageState extends State<MyHomePage> {
                   }));
                 },
                 textColor: Colors.blue,
-                // child:Text('debugDumpApp'),
                 child: Text('State lifeCycle')),
+            FlatButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return TextWidget();
+                  }));
+                },
+                textColor: Colors.blue,
+                child: Text('Text style')),
+            FlatButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return ButtonWidget();
+                  }));
+                },
+                textColor: Colors.blue,
+                child: Text('button')),
+            FlatButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return ImageWidget();
+                  }));
+                },
+                textColor: Colors.blue,
+                child: Text('img')),
+            FlatButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return ListViewWidget();
+                  }));
+                },
+                textColor: Colors.blue,
+                child: Text('list')),
+            FlatButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return GestureDetectorDragWidget();
+                  }));
+                },
+                textColor: Colors.blue,
+                child: Text('gesture')),
           ],
         ),
       ),
